@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root,
+body,
+html {
+  height: 100vh;
+  width: 100vw;
+
+  padding: 0px;
+  margin: 0px;
+
+}
+
+.w-lateralMenu {
+  width: 5.166666666666667%;
+}
+
+.h-lateralMenuButton {
+  height: 16%;
+}
+
+
+/* custom font */
+@font-face {
+  font-family: 'Gotham-Black';
+  src: url('./assets/Font/Gotham-Black.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham-Medium';
+  src: url('./assets/Font/GothamMedium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
