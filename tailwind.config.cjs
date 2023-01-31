@@ -7,6 +7,10 @@ module.exports = {
         mainDarkColor: "rgb(8,8,26)",
         lateralMenuColor: "#2d2d3f",
       },
+      fontFamily: {
+        mainFont: ["Gotham-Black"],
+        mediumFont: ["Gotham-Medium"],
+      }
     },
   },
   plugins: [],
