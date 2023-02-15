@@ -13,6 +13,12 @@ html {
 
 }
 
+.optionView {
+  width: 250px !important; 
+}
+
+
+
 .w-lateralMenu {
   width: 5.166666666666667%;
 }
@@ -35,4 +41,32 @@ html {
   src: url('./assets/Font/GothamMedium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+.focus {
+  -webkit-mask: radial-gradient(circle, #0000 150px, rgba(0, 0, 0, 0.9) 160px);
+  backdrop-filter:blur(10px);
+}
+
+
+::-webkit-scrollbar {
+  width: 1px;
+  background-color: rgb(8, 8, 26);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border: 1px solid transparent;
+  background-clip: content-box;   /* THIS IS IMPORTANT */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2d2d3f;
+  border-radius: 10px;
+  width: 1px; /* adjust this value to make the thumb smaller */
+  height: 1px; /* adjust this value to make the thumb smaller */
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-left: 3rem solid transparent;
+  background-clip: padding-box;    
 }
