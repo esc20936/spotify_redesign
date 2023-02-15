@@ -31,17 +31,20 @@ function CarrouselArtistImageView(data) {
       <div className="w-full h-full flex flex-col items-end justify-end p-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white hover:text-indigo-500 hidden group-hover:block "
-          fill="none"
-          viewBox="0 0 24 24"
+          className="h-6 w-6 text-white hidden group-hover:block cursor-pointer hover:fill-indigo-500"
+          fill="#FFF"
+          viewBox="0 0 512 512"
           stroke="currentColor"
+          onClick={() => {
+            dispatch(setTypeOfModal("editPodcast"));
+          }}
         >
          {/* + sign */}
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+            d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"
           />
         </svg>
 
@@ -60,7 +63,7 @@ function CarrouselArtistImageView(data) {
         <h1 className="text-white text-2xl font-mainFont">{name}</h1>
         <div className="w-full h-auto mt-2 flex flex-col items-start justify-start">
           <p className="text-white text-sm font-mediumFont">
-            Duration: {Duration}
+            Duration: {Duration} min
           </p>
         </div>
         <div className="w-full h-full mt-2 flex flex-col items-start justify-center">
@@ -76,7 +79,7 @@ function CarrouselArtistImageView(data) {
 function SongCarrouselCard(data) {
   const dispatch = useDispatch();
 
-  const { Artist_name, name, Name_album, image } = data.values;
+  const { Artist_name, name, Name_album, image,_id } = data.values;
   const imageRef = useRef(null);
 
   useEffect(() => {
@@ -88,7 +91,7 @@ function SongCarrouselCard(data) {
     <div
       className="group optionView relative h-4/6 overflow-hidden flex flex-col rounded-lg items-center justify-center first:ml-12 last:mr-12 bg-indigo-900 cursor-pointer"
       onClick={() => {
-        let values = { name: name, artist: Artist_name, image: image.raw };
+        let values = { name: name, artist: Artist_name, image: image.raw, _id };
         dispatch(setSong(values));
         dispatch(setTypeOfModal("songData"));
       }}
