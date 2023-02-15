@@ -25,6 +25,9 @@ function ArtistSongCard(data) {
         <h1 className='text-white font-mainFont text-lg'>{name}</h1>
         <p className='text-white text-lg'>{Artist_name}</p>
       </div>
+      <div className='h-full w-1/4 flex flex-col items-end justify-center pr-4'>
+      <p className="text-white font-mediumFont text-2xl hover:text-indigo-600">▶</p>
+      </div>
 
     </div>
   );

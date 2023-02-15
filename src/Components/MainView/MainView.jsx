@@ -11,13 +11,14 @@ import { fetchPodcasts } from "../../Utillities/fetchers/Podcasts";
 import { useDispatch, useSelector } from "react-redux";
 import { setTypeOfModal } from "../../store/Modal";
 import { setSong } from "../../store/Songs/ActiveSongSlice";
+import { setPodcast } from "../../store/Podcasts/PodcastsSlice";
 
 
 const queryClient = new QueryClient();
 
 function CarrouselArtistImageView(data) {
   const dispatch = useDispatch();
-  const { name, image, Duration, author, Topic } = data.values;
+  const { name, image, Duration, author, Topic, _id } = data.values;
 
   const imageRef = useRef(null);
 
@@ -36,6 +37,8 @@ function CarrouselArtistImageView(data) {
           viewBox="0 0 512 512"
           stroke="currentColor"
           onClick={() => {
+            let val = {name:name, author, description:Topic,image:image.raw, duration:Duration, _id};
+            dispatch(setPodcast(val));
             dispatch(setTypeOfModal("editPodcast"));
           }}
         >
@@ -112,7 +115,7 @@ function SongCarrouselCard(data) {
 function PodcastCarrousel() {
   
   const queryClient = useQueryClient();
-  const { data, isLoading, isError } = useQuery("podcasts", fetchPodcasts);
+  const { data, isLoading, isError, refetch } = useQuery("podcasts", fetchPodcasts);
   
   return(
   <div className="w-full  h-5/6 flex flex-row items-start justify-start  overflow-x-scroll ">
@@ -142,6 +145,14 @@ function SongCarrousel() {
 
 
 export default function MainView() {
+
+  const reDraw = useSelector((state) => state.activePage);
+
+  useEffect(() => {
+    console.log("redraw");
+  }, [reDraw]);
+
+
   return (
     <div className="w-full h-full flex flex-col items-start justify-start overflow-scroll">
       {/* nav options */}
@@ -169,7 +180,7 @@ export default function MainView() {
           <div className="w-1/2 h-auto flex flex-col items-start justify-start">
             <div className="w-full h-auto flex flex-row items-start justify-start pl-12">
               <p className="text-gray-500 font-mediumFont text-lg">
-                Artists you might like{" "}
+                Podcasts you might like{" "}
               </p>
             </div>
           </div>

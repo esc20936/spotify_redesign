@@ -6,6 +6,7 @@ import fakeImage1 from "./assets/MusicCovers/fakeImage1.webp";
 import { setTypeOfModal } from "./store/Modal";
 import musicControls from "./assets/musicControls/musicControls.png";
 import SongDataModal from "./Components/Modals/songData/SongDataModal";
+import PodcastsEditModal from "./Components/Modals/podcasts/PodcastsEditModal";
 import {
   useQuery,
   QueryClient,
@@ -27,7 +28,9 @@ function App() {
         <MainView />
       </div>
       {modal.type === "songData" ? (
-           <SongDataModal />
+        <SongDataModal />
+      ) : modal.type === "editPodcast" ? (
+        <PodcastsEditModal />
       ) : (
         <></>
       )}

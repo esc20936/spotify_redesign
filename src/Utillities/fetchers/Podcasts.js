@@ -6,3 +6,10 @@ export const fetchPodcasts = async () => {
     console.log(songs);
     return songs;
 }
+
+export const deletePodcastById = async (id) => {
+    const response = await axios.delete(`http://127.0.0.1:5000/deletepodcast/${id}`);
+    const podcasts = response.data;
+    console.log(podcasts);
+    return podcasts;
+}
